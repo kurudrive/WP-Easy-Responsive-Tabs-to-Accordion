@@ -107,9 +107,9 @@ function easyResponsiveTabs_add_customSettingPage() { ?>
 		<li>Tab title 3</li>
 	</ul> 
 	<div class="resp-tabs-container">
-		<div>TabText1TabText1TabText1TabText1TabText1TabText1TabText1</div>
-		<div>TabText2TabText2TabText2TabText2TabText2TabText2</div>
-		<div>TabText3TabText3TabText3TabText3TabText3Tab</div>
+		<div>TabText1 TabText1 TabText1 TabText1 TabText1 TabText1 TabText1</div>
+		<div>TabText2 TabText2 TabText2 TabText2 TabText2 TabText2</div>
+		<div>TabText3 TabText3 TabText3 TabText3 TabText3Tab</div>
 	</div>
 </div>
 </xmp>
