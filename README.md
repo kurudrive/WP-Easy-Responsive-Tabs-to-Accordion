@@ -44,11 +44,11 @@ How to use
         
 => Input setting page to call the easyResponsiveTabs function:
 
-        $('#demoTab').easyResponsiveTabs();
+        jQuery('#demoTab').easyResponsiveTabs();
         
 => With optional parameters:
 
-        $("#demoTab").easyResponsiveTabs({
+        jQuery("#demoTab").easyResponsiveTabs({
             type: 'default', //Types: default, vertical, accordion           
             width: 'auto', //auto or any custom width
             fit: true   // 100% fits in a container
