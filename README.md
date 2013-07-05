@@ -1,5 +1,7 @@
-Easy Responsive Tabs to Accordion
+WP Easy Responsive Tabs to Accordion
 =================================
+
+WP Easy Responsive Tabs to Accordion changes Easy Responsive Tabs to Accordion to WordPress plugin.
 
 Easy responsive tabs - is a lightweight jQuery plugin which optimizes normal horizontal or vertical tabs to accordion on multi devices like: web, tablets, Mobile (IPad &amp; IPhone). This plugin adapts the screen size and changes its form accordingly.
 
@@ -22,9 +24,7 @@ http://webtrendset.com/demo/easy-responsive-tabs/Index.html
 How to use
 ==========
 
-=> Included jQuery file (minimum jQuery-1.5.1.min.js)
-=> Included easyResponsiveTabs.js
-=> Include responsive-tabs.css
+=> install this plugin to your WordPress.
 
 => Here is the Markup for Tabs structure:
 
@@ -42,7 +42,7 @@ How to use
             </div>
         </div>    
         
-=> Call the easyResponsiveTabs function:
+=> Input setting page to call the easyResponsiveTabs function:
 
         $('#demoTab').easyResponsiveTabs();
         
@@ -53,9 +53,3 @@ How to use
             width: 'auto', //auto or any custom width
             fit: true   // 100% fits in a container
         });
-
-
-For any support
-===============
-Samson 
-Email: samson3d@gmail.com
