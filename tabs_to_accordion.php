@@ -4,9 +4,26 @@ Plugin Name: WP Easy Responsive Tabs to Accordion
 Plugin URI:
 Description: Easy responsive tabs - is a lightweight jQuery plugin which optimizes normal horizontal or vertical tabs to accordion on multi devices like: web, tablets, Mobile (IPad & IPhone). This plugin adapts the screen size and changes its action accordingly.
 Version: 1.0.0
-Author: jQuery plugin by Samson Onna / Changed into plugin of WordPress by Kurudrive(Hidekazu Ishikawa) at Vektor,Inc.
-Author URI: http://vektor-inc.co.jp
-License: MIT
+Author: jQuery plugin by Samson Onna / Changed for WordPress plugin by Kurudrive(Hidekazu Ishikawa) at Vektor,Inc.
+Author URI: http://bizvektor.com
+License: GPL2
+
+/*  Copyright 2013 Hidekazu Ishikawa ( email : kurudrive@gmail.com )
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License, version 2, as
+	published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+/*-------------------------------------------*/
 
 /*-------------------------------------------*/
 /*	load css
@@ -69,8 +86,8 @@ function easyResponsiveTabs_get_plugin_options() {
 /*-------------------------------------------*/
 function easyResponsiveTabs_add_customSetting() {
 	$custom_page = add_options_page(
-		'Easy Responsive Tabs to Accordion setting',		// Name of page
-		'Tabs to Accordion',		// Label in menu
+		'WP Easy Responsive Tabs to Accordion setting',		// Name of page
+		'WP Easy Responsive Tabs to Accordion',		// Label in menu
 		'edit_plugins',				// Capability required　このメニューページを閲覧・使用するために最低限必要なユーザーレベルまたはユーザーの種類と権限。
 		'easyResponsiveTabs_plugin_options',				// ユニークなこのサブメニューページの識別子
 		'easyResponsiveTabs_add_customSettingPage'			// メニューページのコンテンツを出力する関数
@@ -86,7 +103,7 @@ add_action( 'admin_menu', 'easyResponsiveTabs_add_customSetting' );
 function easyResponsiveTabs_add_customSettingPage() { ?>
 <div class="wrap" id="easyResponsiveTabs_plugin_options">
 <?php screen_icon(); ?>
-<h2>Easy Responsive Tabs to Accordion</h2>
+<h2>WP Easy Responsive Tabs to Accordion setting</h2>
 
 <form method="post" action="options.php">
 <?php
@@ -99,8 +116,7 @@ function easyResponsiveTabs_add_customSettingPage() { ?>
 <tr>
 	<th>Sample html</th>
 	<td>
-<xmp>
-<div id="demoTab">
+<xmp><div id="demoTab">
 	<ul class="resp-tabs-list">
 		<li>Tab title 1</li>
 		<li>Tab title 2</li>
@@ -111,14 +127,13 @@ function easyResponsiveTabs_add_customSettingPage() { ?>
 		<div>TabText2 TabText2 TabText2 TabText2 TabText2 TabText2</div>
 		<div>TabText3 TabText3 TabText3 TabText3 TabText3Tab</div>
 	</div>
-</div>
-</xmp>
+</div></xmp>
 	</td>
 	</tr>
 	<tr>
 	<th>Input Target Selectors</th>
 	<td>
-	<textarea cols="20" rows="15" name="easyResponsiveTabs_plugin_options[easyResponsiveTabsSelectors]" id="easyResponsiveTabsSelectors" value="" style="width:80%;" /><?php echo $options_easyResponsiveTabs['easyResponsiveTabsSelectors'] ?></textarea><br />
+	<textarea cols="20" rows="5" name="easyResponsiveTabs_plugin_options[easyResponsiveTabsSelectors]" id="easyResponsiveTabsSelectors" value="" style="width:80%;" /><?php echo $options_easyResponsiveTabs['easyResponsiveTabsSelectors'] ?></textarea><br />
 	<dl>
 	<dt>ex1 : Call the easyResponsiveTabs function</dt>
 	<dd><pre>
