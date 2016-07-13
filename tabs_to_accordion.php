@@ -3,9 +3,9 @@
 Plugin Name: WP Easy Responsive Tabs to Accordion
 Plugin URI:
 Description: Easy responsive tabs - is a lightweight jQuery plugin which optimizes normal horizontal or vertical tabs to accordion on multi devices like: web, tablets, Mobile (IPad & IPhone). This plugin adapts the screen size and changes its action accordingly.
-Version: 1.0.0
-Author: jQuery plugin by Samson Onna / Changed for WordPress plugin by Kurudrive(Hidekazu Ishikawa) at Vektor,Inc.
-Author URI: http://bizvektor.com
+Version: 1.1.0
+Author: jQuery plugin by Samson Onna / Changed for WordPress plugin by Kurudrive.
+Author URI: http://ligthning.vektor-inc.co.jp
 License: GPL2
 
 /*  Copyright 2013 Hidekazu Ishikawa ( email : kurudrive@gmail.com )
