@@ -23,7 +23,22 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+$data = get_file_data( __FILE__, array( 'version' => 'Version','textdomain' => 'Text Domain' ) );
+define( 'VK_ERTAB_VERSION', $data['version'] );
+define( 'VK_ERTAB_BASENAME', plugin_basename( __FILE__ ) );
+define( 'VK_ERTAB_URL', plugin_dir_url( __FILE__ ) );
+define( 'VK_ERTAB_DIR', plugin_dir_path( __FILE__ ) );
+
+require_once( 'vk-admin-config.php' );
+
 /*-------------------------------------------*/
+/*	Load text domain
+/*-------------------------------------------*/
+function easyResponsiveTabs() {
+	load_plugin_textdomain( 'easyResponsiveTabs' );
+}
+add_action( 'init', 'easyResponsiveTabs' );
 
 /*-------------------------------------------*/
 /*	load css
@@ -38,7 +53,7 @@ function easyResponsiveTabs_css(){
 /*-------------------------------------------*/
 add_action('wp_footer', 'easyResponsiveTabs_js');
 function easyResponsiveTabs_js(){
-	wp_register_script( 'easyResponsiveTabs' , plugins_url('js/easyResponsiveTabs.js', __FILE__), array('jquery'), '20130704' );
+	wp_register_script( 'easyResponsiveTabs' , plugins_url('js/easyResponsiveTabs.js', __FILE__), array('jquery'), VK_ERTAB_VERSION );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'easyResponsiveTabs' ); ?>
 	<script language="JavaScript">
@@ -97,67 +112,16 @@ function easyResponsiveTabs_add_customSetting() {
 }
 add_action( 'admin_menu', 'easyResponsiveTabs_add_customSetting' );
 
-/*-------------------------------------------*/
-/*	Setting Page
-/*-------------------------------------------*/
-function easyResponsiveTabs_add_customSettingPage() { ?>
-<div class="wrap" id="easyResponsiveTabs_plugin_options">
-<?php screen_icon(); ?>
-<h2>WP Easy Responsive Tabs to Accordion setting</h2>
 
-<form method="post" action="options.php">
-<?php
-	settings_fields( 'easyResponsiveTabs_plugin_options' );
-	$options_easyResponsiveTabs = easyResponsiveTabs_get_plugin_options();
-	$default_options = easyResponsiveTabs_get_default_options();
-?>
-<div id="" class="sectionBox">
-<table class="form-table">
-<tr>
-	<th>Sample html</th>
-	<td>
-<xmp><div id="demoTab">
-	<ul class="resp-tabs-list">
-		<li>Tab title 1</li>
-		<li>Tab title 2</li>
-		<li>Tab title 3</li>
-	</ul> 
-	<div class="resp-tabs-container">
-		<div>TabText1 TabText1 TabText1 TabText1 TabText1 TabText1 TabText1</div>
-		<div>TabText2 TabText2 TabText2 TabText2 TabText2 TabText2</div>
-		<div>TabText3 TabText3 TabText3 TabText3 TabText3Tab</div>
-	</div>
-</div></xmp>
-	</td>
-	</tr>
-	<tr>
-	<th>Input Target Selectors</th>
-	<td>
-	<textarea cols="20" rows="5" name="easyResponsiveTabs_plugin_options[easyResponsiveTabsSelectors]" id="easyResponsiveTabsSelectors" value="" style="width:80%;" /><?php echo $options_easyResponsiveTabs['easyResponsiveTabsSelectors'] ?></textarea><br />
-	<dl>
-	<dt>ex1 : Call the easyResponsiveTabs function</dt>
-	<dd><pre>
-jQuery('#demoTab').easyResponsiveTabs();
-	</pre></dd>
-</dl>
-<dl>
-	<dt>ex2 : With optional parameters</dt>
-	<dd><pre>
-jQuery("#demoTab").easyResponsiveTabs({
-	type: 'default', //Types: default, vertical, accordion           
-	width: 'auto', //auto or any custom width
-	fit: true   // 100% fits in a container
-});
-</pre></dd>
-</dl>
-</td>
-</tr>
-</table>
-<?php submit_button(); ?>
-</div><!-- [ /# ] -->
-</form>
-</div>
-<?php }
+/*-------------------------------------------*/
+/*	Add link to setting page in Plugin list page
+/*-------------------------------------------*/
+function easyResponsiveTabs_set_plugin_meta( $links ) { 
+    $settings_link             = '<a href="options-general.php?page=easyResponsiveTabs_plugin_options">'.__( 'Setting', 'easyResponsiveTabs' ).'</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+ add_filter('plugin_action_links_'.VK_ERTAB_BASENAME , 'easyResponsiveTabs_set_plugin_meta', 10, 1);
 
 function easyResponsiveTabs_plugin_options_validate( $input ) {
 	$output = $defaults = easyResponsiveTabs_get_default_options();
