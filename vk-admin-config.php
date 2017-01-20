@@ -5,7 +5,7 @@
 /*-------------------------------------------*/
 if ( ! class_exists( 'Vk_Admin' ) )
 {
-	require_once( 'vk-admin/class.vk-admin.php' );
+	require_once( VK_ERTAB_DIR.'vk-admin/class.vk-admin.php' );
 }
 
 $admin_pages = array( 'settings_page_easyResponsiveTabs_plugin_options' );
